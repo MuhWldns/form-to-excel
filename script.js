@@ -3,7 +3,10 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbyJJw614BLHbYYSqGS2bI
 
   form.addEventListener('submit', e => {
     e.preventDefault()
+    alert('OK!!')
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
+      .then(response => {
+        form.reset();
+        console.log('Success!', response)})
       .catch(error => console.error('Error!', error.message))
   })
